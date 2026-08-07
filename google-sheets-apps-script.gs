@@ -58,12 +58,15 @@ function saveState_(state) {
     e.rotationStart || ""
   ]));
   writeTab_("Sectores", ["Sector", "Minimo"], (state.sectors || []).map(s => [s.name || "", s.min || 0]));
-  writeTab_("Eventos", ["ID", "Empleado ID", "Fecha", "Tipo", "Nota"], (state.events || []).map(ev => [
+  writeTab_("Eventos", ["ID", "Empleado ID", "Fecha", "Tipo", "Nota", "Nuevo turno", "Nuevo franco", "Inicio nueva rotacion"], (state.events || []).map(ev => [
     ev.id || "",
     ev.employeeId || "",
     ev.date || "",
     ev.type || "",
-    ev.note || ""
+    ev.note || "",
+    ev.newShift || "",
+    ev.newStartOff === undefined ? "" : ev.newStartOff,
+    ev.newRotationStart || ""
   ]));
   writeTab_("Configuracion", ["Clave", "Valor"], [
     ["Ultima actualizacion", new Date()],
